@@ -29,9 +29,17 @@ class Home extends React.Component {
   }
 
   login = () => {
+    const { userSession } = getConfig()
+    userSession.redirectToSignIn()
   }
 
   logout = () => {
+    const { userSession } = getConfig()
+    userSession.signUserOut()
+    this.setState({
+      currentUser: null
+    })
+
   }
 
   render() {

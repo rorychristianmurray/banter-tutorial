@@ -15,12 +15,20 @@ class MyApp extends App {
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
+      configure({
+        apiServer: process.env.RADIKS_API_SERVER,
+        userSession
+      })
     }
 
     return { pageProps };
   }
 
   componentWillMount() {
+    configure({
+      apiServer: process.env.RADIKS_API_SERVER,
+      userSession
+    })
   }
 
   render() {
